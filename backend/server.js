@@ -3,15 +3,21 @@ if (process.env.NODE_ENV != "PRODUCTION") {
   require("dotenv").config();
 }
 
-// Using Server Dependencies
+// Requiring Server Dependencies
 const express = require("express");
 const app = express();
 
-// Using DB Dependency
+// Requiring DB Dependency
 const mongoose = require("mongoose");
 
-// Using Other Dependencies
+// Requiring Other Dependencies
 const cors = require("cors");
+const bodyParser = require("body-parser");
+
+// Requiring DB Models
+const { Holding } = require("./models/holdingsModel");
+const { Position } = require("./models/positionsModel");
+const { Order } = require("./models/ordersModel");
 
 // Setting Env Variables
 app.set("port", process.env.PORT);
@@ -45,8 +51,32 @@ const corsConfig = {
 app.use(cors(corsConfig));
 
 // Using Dependencies
+app.use(bodyParser.json());
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ extended: true, limit: "40kb" }));
+
+// Fetch Data from DB
+app.get("/allHoldings", async (req, res) => {
+  let allHoldings = await Holding.find({});
+  res.json(allHoldings);
+});
+
+app.get("/allPositions", async (req, res) => {
+  let allPositions = await Position.find({});
+  res.json(allPositions);
+});
+
+app.post("/newOrder", async (req, res) => {
+  let data = req.body;
+  let newData = new Order({
+    name: data.name,
+    qty: data.qty,
+    price: data.price,
+    mode: data.mode,
+  });
+  newData.save();
+  res.send("Done!");
+});
 
 // Start Server
 const start = () => {
