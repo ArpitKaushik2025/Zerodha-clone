@@ -5,7 +5,9 @@ function LeftImageSection({
   productName,
   productDescription,
   link1,
+  link1_URL,
   link2,
+  link2_URL,
   googlePlay,
   appStore,
 }) {
@@ -21,7 +23,7 @@ function LeftImageSection({
           <div>
             {link1 != "" ? (
               <a
-                href=""
+                href={link1_URL}
                 style={{ textDecoration: "none", marginRight: "5rem" }}
               >
                 {link1} <i class="fa-solid fa-arrow-right"></i>
@@ -30,7 +32,7 @@ function LeftImageSection({
               <></>
             )}
             {link2 != "" ? (
-              <a href="" style={{ textDecoration: "none" }}>
+              <a href={link2_URL} style={{ textDecoration: "none" }}>
                 {link2} <i class="fa-solid fa-arrow-right"></i>
               </a>
             ) : (

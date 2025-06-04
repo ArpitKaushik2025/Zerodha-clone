@@ -5,9 +5,9 @@ function RightImageSection({
   productName,
   productDescription,
   link1,
+  link1_URL,
   link2,
-  googlePlay,
-  appStore,
+  link2_URL,
 }) {
   return (
     <div className="container mt-5 mb-5">
@@ -18,7 +18,7 @@ function RightImageSection({
           <div>
             {link1 != "" ? (
               <a
-                href=""
+                href={link1_URL}
                 style={{ textDecoration: "none", marginRight: "5rem" }}
               >
                 {link1} <i class="fa-solid fa-arrow-right"></i>
@@ -27,7 +27,7 @@ function RightImageSection({
               <></>
             )}
             {link2 != "" ? (
-              <a href="" style={{ textDecoration: "none" }}>
+              <a href={link2_URL} style={{ textDecoration: "none" }}>
                 {link2} <i class="fa-solid fa-arrow-right"></i>
               </a>
             ) : (
