@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:7000/newOrder", {
+    axios.post(`${import.meta.VITE_SERVER_URL}/newOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
