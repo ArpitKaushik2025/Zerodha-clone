@@ -43,7 +43,7 @@ const connectionToDb = async () => {
 
 // CORS Configuration & Using CORS
 const corsConfig = {
-  origin: "http://localhost:5173",
+  origin: "https://zerodha-dashboard-dg9d.onrender.com",
   method: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 app.use(cors(corsConfig));
