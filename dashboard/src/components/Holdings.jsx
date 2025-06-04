@@ -6,7 +6,7 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get(`${import.meta.VITE_SERVER_URL}/allHoldings`).then((res) => {
+    axios.get(`${import.meta.env.VITE_SERVER_URL}/allHoldings`).then((res) => {
       setAllHoldings(res.data);
     });
   }, []);

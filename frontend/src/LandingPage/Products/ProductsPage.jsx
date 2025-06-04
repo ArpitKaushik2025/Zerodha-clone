@@ -5,7 +5,7 @@ import LeftImageSection from "./LeftImageSection";
 import RightImageSection from "./RightImageSection";
 
 function ProductsPage() {
-  const dashboardURL = import.meta.VITE_DASHBOARD_URL;
+  const dashboardURL = import.meta.env.VITE_DASHBOARD_URL;
   return (
     <>
       <Hero />
@@ -14,7 +14,7 @@ function ProductsPage() {
         productName="Kite"
         productDescription="Our ultra-fast flagship trading platform with streaming market data, advanced charts, an elegant UI, and more. Enjoy the Kite experience seamlessly on your Android and iOS devices."
         link1="Try demo"
-        link1_URL={dashboardURL}
+        link1_URL={`${dashboardURL}`}
         link2="Learn more"
         link2_URL=""
         googlePlay=""
@@ -45,7 +45,7 @@ function ProductsPage() {
         productName="Kite Connect API"
         productDescription="Build powerful trading platforms and experiences with our super simple HTTP/JSON APIs. If you are a startup, build your investment app and showcase it to our clientbase."
         link1="Kite Connect"
-        link1_URL={dashboardURL}
+        link1_URL={`${dashboardURL}`}
         link2=""
         link2_URL=""
       />
